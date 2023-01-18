@@ -1,0 +1,18 @@
+<h2>Projetos</h2>
+<ul class="project">
+  <li *ngFor="let project of projects">
+    <button [class.selected]="project === selectedProject" type="button" (click)="onSelected(project)">
+      <span class="badge">{{project.id}}</span>
+      <span class="name">{{project.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectedProject">
+  <h2>{{selectedProject.name | uppercase}} Details</h2>
+  <div>id: {{selectedProject.id}}</div>
+  <div>
+    <label for="project-name">Project: </label>
+    <input id="project-name" [(ngModel)]="selectedProject.name" placeholder="name">
+  </div>
+</div>
